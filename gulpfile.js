@@ -16,7 +16,7 @@ var smoosh = require('gulp-smoosher');
 var rename = require('gulp-rename');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
-
+var yaml = require('gulp-yaml');
 
 var name = require('./package.json').name;
 
@@ -84,6 +84,13 @@ gulp.task('images', function() {
 	}))
 	.pipe(gulp.dest('./dist/assets/'));	
 });
+
+gulp.task('yaml', function() {
+    gulp.src('./src/data/yaml/*.yml')
+	.pipe(yaml({ safe: true }))
+	.pipe(gulp.dest('./src/data/test/'));
+});
+
 
 gulp.task('default', ['javascript', 'less', 'images'], function() {
     gulp.src('./src/index.html')

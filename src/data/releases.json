@@ -40,7 +40,7 @@
 	"product_id": null,
 	"cat_id": "E003CD",
 	"formats": ["CD"],
-	"date": "2001-01-01",
+	"date": "2001-02-01",
 	"available": false,
 	"notes": "A copy of this album is available form the [Joey Chainsaw Archive](https://joeychainsawarchive.bandcamp.com/album/after-freezing-in-snow-we-did-this)"
     },
@@ -62,7 +62,7 @@
 	"product_id": null,
 	"cat_id": "E006CD",
 	"formats": ["CD"],
-	"date": "2001-01-01",
+	"date": "2001-04-01",
 	"available": false,
 	"notes": "This releases features recording of various combinations of Matthew Chandler, Neil Daoud and Joseph Martin. The tracks featuring Joe are available from [https://joeychainsawarchive.bandcamp.com/album/the-three-of-us-together-and-apart](https://joeychainsawarchive.bandcamp.com/album/the-three-of-us-together-and-apart)"
     },
@@ -74,11 +74,21 @@
 	"product_id": null,
 	"cat_id": "E007CD",
 	"formats": ["CD"],
-	"date": "2001-01-01",
+	"date": "2002-02-11",
 	"available": false,
 	"notes": ""
     },
-    
+    {
+	"artist": "black-and-white-progression",
+	"artist_display": "Black and White Progression",
+	"title": "Do You Find Carrying Your Insanity Heavy Work?",
+	"product_id": null,
+	"cat_id": "E008CD",
+	"formats": ["CD"],
+	"date": "2002-03-01",
+	"available": false,
+	"notes": "This release is available from [https://joeychainsawarchive.bandcamp.com/album/do-you-find-carrying-your-insanity-heavy-work](https://joeychainsawarchive.bandcamp.com/album/do-you-find-carrying-your-insanity-heavy-work)"
+    },
     {
 	"artist": "autotistic",
 	"artist_display": "Autotistic",
@@ -86,7 +96,7 @@
 	"product_id": null,
 	"cat_id": "E009CD",
 	"formats": ["CD"],
-	"date": "2001-01-01",
+	"date": "2002-03-07",
 	"available": false,
 	"notes": ""
     },
@@ -99,7 +109,7 @@
 	"product_id": null,
 	"cat_id": "E010CD",
 	"formats": ["CD"],
-	"date": "2001-01-01",
+	"date": "2002-03-07",
 	"available": false,
 	"notes": ""
     },
@@ -111,7 +121,18 @@
 	"product_id": null,
 	"cat_id": "E011CD",
 	"formats": ["CD"],
-	"date": "2002-01-01",
+	"date": "2002-04-01",
+	"available": false,
+	"notes": ""
+    },
+    {
+	"artist": "sean-james-king",
+	"artist_display": "Sean James King",
+	"title": "Earthbound Ghosts",
+	"product_id": null,
+	"cat_id": "E012CD",
+	"formats": ["CD"],
+	"date": "2002-04-01",
 	"available": false,
 	"notes": ""
     },
@@ -120,11 +141,11 @@
 	"artist_display": "Autotistic",
 	"title": "Postmark",
 	"product_id": null,
-	"cat_id": "E0012CD",
+	"cat_id": "E013CD",
 	"formats": ["CD"],
-	"date": "2002",
+	"date": "2003-05-15",
 	"available": false,
-	"notes": ""
+	"notes": "Autotistic - Postmark. the new cdr from our lo-fi music monger is now out! this cdr is without doubt the greatest autotistic achievement to date, and he keeps getting better. synthesising improvisation and processed electronica, autotistic uses recording made by himself in conjunction with mr ollivetti whom autotistic fans will know doubt recall from the first autotistic cd \"naked fear of james- last blast\" released by the auto label - and eidola records label mates (epoch sans) as well as vocal contributions from avant garde man. check the eidola records website for more details."
     },
 
     {
