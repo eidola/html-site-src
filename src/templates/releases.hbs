@@ -1,16 +1,20 @@
 {{#each .}}
-    <div>
-	<h2><a href="/#!/releases/{{kebabCase title}}">{{title}}</a></h2>
-	<div>Artist: <a href="/#!/artists/{{artist}}">{{artist_display}}</a></div>
-	{{#if available}}
-	    {{#if price}}
-		<div><a href="javascript:;">Add to Cart</a> £{{price}}</div>
-	    {{else}}
-		<div><strong>SOLD OUT</strong></div>	
-	    {{/if}}
-	{{else}}
-	    <div><strong>SOLD OUT</strong></div>
-	{{/if}}
-	
+    <div class="box">
+	<img src="/assets/285x285/{{cat_id}}.png"/>
+	<div class="detail">
+	    <div class="inner">
+		<h2><a href="/#!/releases/{{kebabCase title}}">{{title}}</a></h2>
+		<div>Artist: <a href="/#!/artists/{{artist}}">{{artist_display}}</a></div>
+		{{#if available}}
+		    {{#if price}}
+			<div><a href="javascript:;">Add to Cart</a> £{{price}}</div>
+		    {{else}}
+			<div><strong>SOLD OUT</strong></div>	
+		    {{/if}}
+		{{else}}
+		    <div><strong>SOLD OUT</strong></div>
+		{{/if}}
+	    </div>
+	</div>
     </div>
 {{/each}}

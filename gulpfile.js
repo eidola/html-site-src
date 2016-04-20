@@ -85,7 +85,7 @@ gulp.task('images', function() {
 	.pipe(gulp.dest('./dist/assets/'));	
 });
 
-gulp.task('default', ['javascript', 'less'], function() {
+gulp.task('default', ['javascript', 'less', 'images'], function() {
     gulp.src('./src/index.html')
 	.pipe(smoosh())
 	.pipe(gulp.dest('./dist'));
