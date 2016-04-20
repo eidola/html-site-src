@@ -1,0 +1,14 @@
+# compiled output
+/dist
+/tmp
+
+# dependencies
+/node_modules
+/bower_components
+
+# misc
+npm-debug.log
+testem.log
+
+#emacs temp files
+*~

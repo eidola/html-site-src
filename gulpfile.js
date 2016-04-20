@@ -14,6 +14,9 @@ var browserify = require('browserify');
 var less = require('gulp-less');
 var smoosh = require('gulp-smoosher');
 var rename = require('gulp-rename');
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
+
 
 var name = require('./package.json').name;
 
@@ -70,6 +73,16 @@ gulp.task('javascript', ['templates'], function() {
 	bundledStream.emit('error', err);
     });
     return bundledStream;
+});
+
+gulp.task('images', function() {
+    gulp.src(['./src/assets/**/*.png', '!./src/assets/_original/*.*'])
+	.pipe(imagemin({
+	    progressive: true,
+	    svgoPlugins: [{removeViewBox: false}],
+	    use: [pngquant()]
+	}))
+	.pipe(gulp.dest('./dist/assets/'));	
 });
 
 gulp.task('default', ['javascript', 'less'], function() {

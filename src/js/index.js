@@ -1,3 +1,5 @@
+/*jslint browser: true*/
+
 var releases = require('../data/releases.json'),
     templates = require('./modules/templates'),
     _ = require('lodash');
@@ -23,7 +25,7 @@ var routes = (function() {
 	releases: function(release) {
 	    release = _.find(releases, function(e) {
 		return _.kebabCase(e.title) === release;
-	    })
+	    });
 	    el.innerHTML = templates.release(release);
 	},
 	_404: function() {
@@ -41,7 +43,7 @@ var matchRoute = function() {
 	return;
     }
     
-    match = hash.match(/#!\/([^\/]+)\/([^\/]+)/i);
+    var match = hash.match(/#!\/([^\/]+)\/([^\/]+)/i);
     
     if(!match) {
 	routes._404();

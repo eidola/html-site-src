@@ -1,3 +1,6 @@
 <div>
-{{title}}
+    <h2>{{title}} | {{artist_display}}</h2>
+    {{#if notes}}
+	<div>{{{markdown notes}}}</div>
+    {{/if}}
 </div>
