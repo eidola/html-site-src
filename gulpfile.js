@@ -22,6 +22,7 @@ var yaml = require('js-yaml');
 var jsoncombine = require('gulp-jsoncombine');
 var fs = require('fs');
 var path = require('path');
+var es = require('event-stream');
 
 var name = require('./package.json').name;
 
@@ -123,18 +124,17 @@ function getFolders(dir) {
 	});
 }
 
-gulp.task('mergejson', ['data'], function(done) {
+gulp.task('mergejson', ['data'], function() {
     var root = './src/data';
     var folders = getFolders(root);
-    folders.forEach(function(folder) {
-	gulp.src([ root + '/' + folder + '/*.json' ])
+    return es.merge(folders.map(function(folder) {
+	return gulp.src([ root + '/' + folder + '/*.json' ])
 	    .pipe(jsoncombine(folder + '.json', function(data) {
 		return new Buffer(JSON.stringify(data));
 	    }))
 	    .pipe(gulp.dest(root));
-	console.log("%s: complete", folder);
-    });
-    done();
+
+    }));
 
 });
 
