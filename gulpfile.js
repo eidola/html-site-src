@@ -1,6 +1,7 @@
 /*jslint browser:false*/
 /*global require*/
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var handlebars = require('gulp-handlebars');
 var defineModule = require('gulp-define-module');
 var concat = require('gulp-concat');
@@ -16,37 +17,41 @@ var smoosh = require('gulp-smoosher');
 var rename = require('gulp-rename');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
-var yaml = require('gulp-yaml');
+var map = require('map-stream');
+var yaml = require('js-yaml');
+var jsoncombine = require('gulp-jsoncombine');
+var fs = require('fs');
+var path = require('path');
 
 var name = require('./package.json').name;
 
 gulp.task('templates', function() {
-  // Load templates from the templates/ folder relative to where gulp was executed
-  gulp.src('src/templates/**/*.hbs')
+    // Load templates from the templates/ folder relative to where gulp was executed
+    gulp.src('src/templates/**/*.hbs')
     // Compile each Handlebars template source file to a template function
 	.pipe(handlebars({
 	    handlebars: require('handlebars')
 	}))
     // Wrap each template function in a call to Handlebars.template
-    .pipe(wrap('Handlebars.template(<%= contents %>)'))
+	.pipe(wrap('Handlebars.template(<%= contents %>)'))
     // Declare template functions as properties and sub-properties of exports
-    .pipe(declare({
-      root: 'exports',
-      noRedeclare: true, // Avoid duplicate declarations
-      processName: function(filePath) {
-        // Allow nesting based on path using gulp-declare's processNameByPath()
-        // You can remove this option completely if you aren't using nested folders
-        // Drop the templates/ folder from the namespace path by removing it from the filePath
-	
-        return declare.processNameByPath(filePath.replace('src/templates', ''));
-      }
-    }))
+	.pipe(declare({
+	    root: 'exports',
+	    noRedeclare: true, // Avoid duplicate declarations
+	    processName: function(filePath) {
+		// Allow nesting based on path using gulp-declare's processNameByPath()
+		// You can remove this option completely if you aren't using nested folders
+		// Drop the templates/ folder from the namespace path by removing it from the filePath
+		
+		return declare.processNameByPath(filePath.replace('src/templates', ''));
+	    }
+	}))
     // Concatenate down to a single file
-    .pipe(concat('templates.js'))
+	.pipe(concat('templates.js'))
     // Add the Handlebars module in the final output
-    .pipe(wrap('var Handlebars = require("./helpers");\n <%= contents %>'))
+	.pipe(wrap('var Handlebars = require("./helpers");\n <%= contents %>'))
     // WRite the output into the templates folder
-    .pipe(gulp.dest('src/js/modules'));
+	.pipe(gulp.dest('src/js/modules'));
 });
 
 gulp.task('less', function() {
@@ -55,7 +60,7 @@ gulp.task('less', function() {
 	.pipe(gulp.dest('./dist/css'));
 });
 
-gulp.task('javascript', ['templates'], function() {
+gulp.task('javascript', ['mergejson', 'templates'], function() {
     var bundledStream = through();
     bundledStream
 	.pipe(source('index.js'))
@@ -85,12 +90,53 @@ gulp.task('images', function() {
 	.pipe(gulp.dest('./dist/assets/'));	
 });
 
-gulp.task('yaml', function() {
-    gulp.src('./src/data/yaml/*.yml')
-	.pipe(yaml({ safe: true }))
-	.pipe(gulp.dest('./src/data/test/'));
+gulp.task('data', function() {
+    gulp.src(['./src/data/**/*.yml'])
+	.pipe(map(function(file,cb){
+	    if (file.isNull()) {
+		return cb(null, file); // pass along
+	    }
+	    if (file.isStream()) {
+		return cb(new Error("Streaming not supported"));
+	    }
+	    var json;
+	    
+	    try {
+		json = yaml.load(String(file.contents.toString('utf8')));
+	    } catch(e) {
+		console.log(e);
+		console.log(json);
+	    }
+	    file.path = gutil.replaceExtension(file.path, '.json');
+	    file.contents = new Buffer(JSON.stringify(json));
+	    
+	    cb(null,file);
+	}))
+	.pipe(gulp.dest('./src/data/'));
 });
 
+
+function getFolders(dir) {
+    return fs.readdirSync(dir)
+	.filter(function(file) {
+            return fs.statSync(path.join(dir, file)).isDirectory();
+	});
+}
+
+gulp.task('mergejson', ['data'], function(done) {
+    var root = './src/data';
+    var folders = getFolders(root);
+    folders.forEach(function(folder) {
+	gulp.src([ root + '/' + folder + '/*.json' ])
+	    .pipe(jsoncombine(folder + '.json', function(data) {
+		return new Buffer(JSON.stringify(data));
+	    }))
+	    .pipe(gulp.dest(root));
+	console.log("%s: complete", folder);
+    });
+    done();
+
+});
 
 gulp.task('default', ['javascript', 'less', 'images'], function() {
     gulp.src('./src/index.html')

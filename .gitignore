@@ -1,7 +1,8 @@
 # compiled output
 /dist
 /tmp
-
+/src/data/*.json
+/src/data/**/*.json
 # dependencies
 /node_modules
 /bower_components
