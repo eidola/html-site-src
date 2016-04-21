@@ -23,11 +23,14 @@ var jsoncombine = require('gulp-jsoncombine');
 var fs = require('fs');
 var path = require('path');
 var es = require('event-stream');
+var merge = require('merge-stream');
 
 var name = require('./package.json').name;
 
+var hbs = require('handlebars');
+
 gulp.task('templates', function() {
-    // Load templates from the templates/ folder relative to where gulp was executed
+// Load templates from the templates/ folder relative to where gulp was executed
     gulp.src('src/templates/**/*.hbs')
     // Compile each Handlebars template source file to a template function
 	.pipe(handlebars({
@@ -54,6 +57,8 @@ gulp.task('templates', function() {
     // WRite the output into the templates folder
 	.pipe(gulp.dest('src/js/modules'));
 });
+
+
 
 gulp.task('less', function() {
     gulp.src(['src/less/main.less'])
@@ -133,9 +138,7 @@ gulp.task('mergejson', ['data'], function() {
 		return new Buffer(JSON.stringify(data));
 	    }))
 	    .pipe(gulp.dest(root));
-
     }));
-
 });
 
 gulp.task('default', ['javascript', 'less', 'images'], function() {

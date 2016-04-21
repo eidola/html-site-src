@@ -1,9 +1,12 @@
 /*jslint browser: true*/
 
 var releases = require('../data/releases.json'),
+    artists = require('../data/artists.json'),
     templates = require('./modules/templates'),
     _ = require('lodash');
 
+
+window.templates = templates;
 
 // Sort Releases by Date and then Cat_ID newest to oldests
 releases = _.orderBy(releases, ['date', 'cat_id'], ['desc','desc']);
@@ -20,16 +23,30 @@ var routes = (function() {
 	},
 
 	artists: function(artist) {
-	    el.innerHTML = artist;
+	    artist = _.find(artists, function(e) {
+		return _.kebabCase(e.name) === artist;
+	    });
+	    if(!artist) {
+		routes._404();
+		return;
+	    }
+	    el.innerHTML = templates.artist(artist);
+	    return;
 	},
 	releases: function(release) {
 	    release = _.find(releases, function(e) {
 		return _.kebabCase(e.title) === release;
 	    });
+	    if(!release) {
+		routes._404();
+		return;
+	    }
 	    el.innerHTML = templates.release(release);
+	    return;
 	},
 	_404: function() {
-	    el.innerHTML = "404";
+	    el.innerHTML = templates._404({ url: document.location.toString() });
+	    return;
 	}
     };
 }());
