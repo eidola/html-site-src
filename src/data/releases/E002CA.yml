@@ -1,5 +1,5 @@
-artist: "vacuity-basement"
-artist_display: "Vacuity Basement"
+artists:
+  - "Vacuity Basement"
 title: "Somewhere I Have Never Travelled / Information"
 product_id: null
 cat_id: "E002CA"

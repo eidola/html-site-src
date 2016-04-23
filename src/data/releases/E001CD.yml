@@ -1,5 +1,7 @@
-artist: "various"
-artist_display: "various"
+artists:
+  - "Vacuity Basement"
+  - "Black and White Progession"
+  - "Boney King of Nowhere"
 title: "Unkown"
 product_id: null
 cat_id: "E1CA"

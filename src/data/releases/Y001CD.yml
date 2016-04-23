@@ -1,5 +1,5 @@
-artist: "various"
-artist_display: "Various"
+artists:
+  - "Various"
 title: "Sylvia Beech"
 product_id: null
 cat_id: "Y001CD"

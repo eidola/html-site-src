@@ -1,5 +1,5 @@
-artist: "sean-james-king"
-artist_display: "Sean James King"
+artists:
+  - "Sean James King"
 title: "Lofi Disco Blues"
 product_id: "532673"
 cat_id: "E006"

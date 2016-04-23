@@ -1,6 +1,6 @@
-artist: "unknown"
-artist_display: "unknown"
-title: "unknown"
+artists:
+  - "Unknown"
+title: "Unknown"
 product_id: null
 cat_id: "E005CD"
 formats: 

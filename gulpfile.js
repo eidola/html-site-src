@@ -141,7 +141,12 @@ gulp.task('mergejson', ['data'], function() {
     }));
 });
 
-gulp.task('default', ['javascript', 'less', 'images'], function() {
+gulp.task('copy', function() {
+    gulp.src(['./src/assets/svg/**/*.svg'])
+	.pipe(gulp.dest('./dist/assets/svg'));
+});
+
+gulp.task('default', ['javascript', 'less', 'images', 'copy'], function() {
     gulp.src('./src/index.html')
 	.pipe(smoosh())
 	.pipe(gulp.dest('./dist'));

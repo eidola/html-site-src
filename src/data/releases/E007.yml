@@ -1,5 +1,5 @@
-artist: "yo-zushi"
-artist_display: "Yo Zushi"
+artists:
+  - "Yo Zushi"
 title: "Happy New Year"
 product_id: "564376"
 cat_id: "E007"

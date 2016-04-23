@@ -1,5 +1,5 @@
-artist: "black-and-white-progression"
-artist_display: "Black and White Progression"
+artists:
+  - "Black and White Progression"
 title: "Do You Find Carrying Your Insanity Heavy Work?"
 product_id: null
 cat_id: "E008CD"

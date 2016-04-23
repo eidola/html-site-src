@@ -1,5 +1,5 @@
-artist: "autotistic"
-artist_display: "Autotistic"
+artists:
+  - "Autotistic"
 title: "EP2"
 product_id: null
 cat_id: "E010CD"

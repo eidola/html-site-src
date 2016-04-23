@@ -1,5 +1,5 @@
-artist: "sean-james-king"
-artist_display: "Sean James King"
+artists:
+  - "Sean James King"
 title: "Lo-Fi Disco Blues"
 product_id: null
 cat_id: "E011CD"

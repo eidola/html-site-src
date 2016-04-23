@@ -1,5 +1,5 @@
-artist: "christmas-tranquility"
-artist_display: "Christmas Tranquility"
+artists:
+  - "Christmas Tranquility"
 title: "After Freezing in the Snow We Did This"
 product_id: null
 cat_id: "E003CD"

@@ -1,5 +1,5 @@
-artist: "yo-zushi"
-artist_display: "Yo Zushi"
+artists:
+  - "Yo Zushi"
 title: "Bye Bye Blackbird"
 product_id: "536658"
 cat_id: "E001"

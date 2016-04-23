@@ -13,7 +13,19 @@ exports["artist"] = Handlebars.template({"1":function(container,depth0,helpers,p
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.soundcloud : depth0)) != null ? stack1.type : stack1), depth0))
     + "/"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.soundcloud : depth0)) != null ? stack1.id : stack1), depth0))
-    + "&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true\"/>\n";
+    + "&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true\" />\n";
+},"3":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "    <div class=\"releases\">\n	<h3>Releases</h3>\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.releases : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "    </div>\n";
+},"4":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "	    <div>"
+    + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"title","hash":{},"data":data}) : helper)))
+    + "</div>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
@@ -25,7 +37,9 @@ exports["artist"] = Handlebars.template({"1":function(container,depth0,helpers,p
     + ((stack1 = (helpers.markdown || (depth0 && depth0.markdown) || alias2).call(alias1,(depth0 != null ? depth0.description : depth0),{"name":"markdown","hash":{},"data":data})) != null ? stack1 : "")
     + "</div>\n"
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.soundcloud : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n    \n";
+    + "\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.releases : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "    \n";
 },"useData":true});
 exports["release"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
@@ -53,26 +67,32 @@ exports["releases"] = Handlebars.template({"1":function(container,depth0,helpers
     + alias4((helpers.kebabCase || (depth0 && depth0.kebabCase) || alias2).call(alias1,(depth0 != null ? depth0.title : depth0),{"name":"kebabCase","hash":{},"data":data}))
     + "\">"
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
-    + "</a></h2>\n		<div>Artist: <a href=\"/#!/artists/"
-    + alias4(((helper = (helper = helpers.artist || (depth0 != null ? depth0.artist : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"artist","hash":{},"data":data}) : helper)))
-    + "\">"
-    + alias4(((helper = (helper = helpers.artist_display || (depth0 != null ? depth0.artist_display : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"artist_display","hash":{},"data":data}) : helper)))
-    + "</a></div>\n"
-    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.available : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
+    + "</a></h2>\n		<div>Artist(s):\n		    <ul>\n			"
+    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.artists : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "\n		    </ul>\n		</div>\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.available : depth0),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.program(9, data, 0),"data":data})) != null ? stack1 : "")
     + "	    </div>\n	</div>\n    </div>\n";
 },"2":function(container,depth0,helpers,partials,data) {
+    var alias1=container.escapeExpression;
+
+  return "<li><a href=\"/#!/artists/"
+    + alias1((helpers.kebabCase || (depth0 && depth0.kebabCase) || helpers.helperMissing).call(depth0 != null ? depth0 : {},depth0,{"name":"kebabCase","hash":{},"data":data}))
+    + "\">"
+    + alias1(container.lambda(depth0, depth0))
+    + "</a></li>";
+},"4":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.price : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.program(5, data, 0),"data":data})) != null ? stack1 : "");
-},"3":function(container,depth0,helpers,partials,data) {
-    var helper;
-
-  return "			<div><a href=\"javascript:;\">Add to Cart</a> £"
-    + container.escapeExpression(((helper = (helper = helpers.price || (depth0 != null ? depth0.price : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"price","hash":{},"data":data}) : helper)))
-    + "</div>\n";
+  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.paypal : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "");
 },"5":function(container,depth0,helpers,partials,data) {
-    return "			<div><strong>SOLD OUT</strong></div>	\n";
+    var stack1;
+
+  return "			<div class=\"add_to_cart\">\n			    <form target=\"paypal\" action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\">\n				<input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\">\n				<input type=\"hidden\" name=\"hosted_button_id\" value=\""
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.paypal : depth0)) != null ? stack1.hosted_button_id : stack1), depth0))
+    + "\">\n				<input type=\"image\" src=\"https://www.paypalobjects.com/en_GB/i/btn/btn_cart_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal – The safer, easier way to pay online.\">\n				<img src=\"/assets/svg/ic_add_shopping_cart_black_24px.svg\" />\n			    </form>\n			</div>\n";
 },"7":function(container,depth0,helpers,partials,data) {
+    return "			<div><strong>SOLD OUT</strong></div>	\n";
+},"9":function(container,depth0,helpers,partials,data) {
     return "		    <div><strong>SOLD OUT</strong></div>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;

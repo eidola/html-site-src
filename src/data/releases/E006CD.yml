@@ -1,5 +1,7 @@
-artist: "various"
-artist_display: "Various"
+artists:
+  - "Matthew Chandler"
+  - "Neil Daoud"
+  - "Joseph Martin"
 title: "The Three Of Us Together and Apart"
 product_id: null
 cat_id: "E006CD"

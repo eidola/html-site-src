@@ -1,5 +1,5 @@
-artist: "vacuity-basement"
-artist_display: "Vacuity Basement"
+artists:
+  - "Vacuity Basement"
 title: "201200"
 product_id: "536659"
 cat_id: "E003"

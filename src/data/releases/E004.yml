@@ -1,5 +1,5 @@
-artist: "yo-zushi"
-artist_display: "Yo Zushi"
+artists:
+  - "Yo Zushi"
 title: "Blue Christmases"
 product_id: "537925"
 cat_id: "E004"

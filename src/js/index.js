@@ -5,9 +5,11 @@ var releases = require('../data/releases.json'),
     templates = require('./modules/templates'),
     _ = require('lodash');
 
-
+//debug
 window.templates = templates;
-
+window.artists = artists;
+window.releases = releases;
+window._ = _;
 // Sort Releases by Date and then Cat_ID newest to oldests
 releases = _.orderBy(releases, ['date', 'cat_id'], ['desc','desc']);
 
@@ -29,6 +31,9 @@ var routes = (function() {
 	    if(!artist) {
 		routes._404();
 		return;
+	    }
+	    if(!artist.hasOwnProperty('releases')) {
+		artist.releases = _.filter(releases, { "artist": artist.name });
 	    }
 	    el.innerHTML = templates.artist(artist);
 	    return;

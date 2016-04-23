@@ -1,5 +1,5 @@
-artist: "yo-zushi"
-artist_display: "Yo Zushi"
+artists:
+  - "Yo Zushi"
 title: "It Never Entered My Mind"
 product_id: "532595"
 cat_id: "E002"
@@ -9,3 +9,5 @@ formats:
 date: "2015-01-19"
 available: true
 price: 5
+paypal:
+  hosted_button_id: 7A2JF8PLZTJA2
