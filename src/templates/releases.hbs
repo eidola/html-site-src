@@ -14,13 +14,13 @@
 			<div class="add_to_cart">
 			    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 				<input type="hidden" name="cmd" value="_s-xclick">
-				<input type="hidden" name="hosted_button_id" value="{{ paypal.hosted_button_id }}">
-				<input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+				<input type="hidden" name="hosted_button_id" value="{{ paypal.hosted_button_id }}" class="paypal_btn">
+				<input type="submit" value="Add to Cart" name="submit" title="PayPal - The safer, easier way to pay online!" class="paypal_btn">
 				<img src="/assets/svg/ic_add_shopping_cart_black_24px.svg" />
 			    </form>
 			</div>
 		    {{else}}
-			<div><strong>SOLD OUT</strong></div>	
+			<div><strong>SOLD OUT</strong></div>
 		    {{/if}}
 		{{else}}
 		    <div><strong>SOLD OUT</strong></div>
