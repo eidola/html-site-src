@@ -50,7 +50,7 @@ exports["release"] = Handlebars.template({"1":function(container,depth0,helpers,
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "<div>\n    <div>\n        <h2>"
+  return "<div class=\"inner-wrapper\">\n    <div>\n        <h2>"
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + " | "
     + alias4(((helper = (helper = helpers.artist_display || (depth0 != null ? depth0.artist_display : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"artist_display","hash":{},"data":data}) : helper)))
