@@ -89,7 +89,7 @@ exports["releases"] = Handlebars.template({"1":function(container,depth0,helpers
 
   return "			<div class=\"add_to_cart\">\n			    <form target=\"paypal\" action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\">\n				<input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\">\n				<input type=\"hidden\" name=\"hosted_button_id\" value=\""
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.paypal : depth0)) != null ? stack1.hosted_button_id : stack1), depth0))
-    + "\" class=\"paypal_btn\">\n				<input type=\"submit\" value=\"Add to Cart\" name=\"submit\" title=\"PayPal - The safer, easier way to pay online!\" class=\"paypal_btn\">\n				<img src=\"/assets/svg/ic_add_shopping_cart_black_24px.svg\" />\n			    </form>\n			</div>\n";
+    + "\" class=\"paypal_btn\">\n				<input type=\"submit\" value=\"Add to Cart\" name=\"submit\" title=\"PayPal - The safer, easier way to pay online!\" class=\"paypal_btn\">\n			    </form>\n			</div>\n";
 },"7":function(container,depth0,helpers,partials,data) {
     return "			<div><strong>SOLD OUT</strong></div>\n";
 },"9":function(container,depth0,helpers,partials,data) {
