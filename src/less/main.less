@@ -1,11 +1,41 @@
 @import 'reset';
 @import 'layout';
 @import 'release';
+@import 'colours';
 
 
 html, body {
-    width: 1200px;
+    width: 1300px;
     margin: 0 auto;
+}
+
+h1{
+    text-align: center;
+    color:@red;
+}
+
+#main{
+    margin:0 auto;
+    height:1255px;
+    border:2px solid @red;
+}
+
+.box{
+    border:1px dotted green;
+}
+
+.box-wrapper{
+    border: 2px solid black;
+    height:100%;
+    width: 100%;
+}
+
+.inner{
+    border:1px solid blue;
+}
+
+.detail{
+    border:2px dotted orange;
 }
 
 h1, h2, h3 {
