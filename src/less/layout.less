@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 @import 'colours';
 .box {
     position: relative;
@@ -25,11 +27,11 @@
 	> div.inner {
 	    padding: 10px;
 	    > div.add_to_cart {
-		margin: auto;
-		height: 150px;
-		width: 150px;
-		border-radius: 75px;
-		background-color: rgb(255, 255, 255);
+		// margin: auto;
+		// height: 150px;
+		// width: 150px;
+		// border-radius: 75px;
+		// background-color: rgb(255, 255, 255);
 		> img {
 		    height: 75px;
 		    margin: auto;
@@ -43,5 +45,36 @@
 	left: 0;
 	z-index: 1;
     }
-    
+
+		[class~=paypal_btn]{
+		display: inline-block;
+		height:30px;
+		width:100px;
+		font-family: 'Lato', inherit;
+		font-size: 1em;
+		font-weight: bold;
+		color: #a40000;
+		text-align: center;
+		margin: 0;
+		background: #fff;
+		border: 2px solid #a40000;
+		cursor: pointer;
+		outline: none;
+		position:absolute;
+		bottom:10px;
+		}
+
+		[class~=paypal_btn]:hover{
+			background: #a40000;
+			color:#fff;
+			font-family: 'Lato', inherit;
+			border: 2px solid #fff;
+			position:absolute;
+			bottom:10px;
+
+		}
+
+
+
+
 }

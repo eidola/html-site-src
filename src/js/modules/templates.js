@@ -44,19 +44,19 @@ exports["artist"] = Handlebars.template({"1":function(container,depth0,helpers,p
 exports["release"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "	<div>"
+  return "    	<div>"
     + ((stack1 = (helpers.markdown || (depth0 && depth0.markdown) || helpers.helperMissing).call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.notes : depth0),{"name":"markdown","hash":{},"data":data})) != null ? stack1 : "")
     + "</div>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "<div>\n    <h2>"
+  return "<div class=\"inner-wrapper\">\n    <div>\n        <h2>"
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + " | "
     + alias4(((helper = (helper = helpers.artist_display || (depth0 != null ? depth0.artist_display : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"artist_display","hash":{},"data":data}) : helper)))
     + "</h2>\n"
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.notes : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "</div>\n";
+    + "    </div>\n</div>\n";
 },"useData":true});
 exports["releases"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
@@ -89,13 +89,15 @@ exports["releases"] = Handlebars.template({"1":function(container,depth0,helpers
 
   return "			<div class=\"add_to_cart\">\n			    <form target=\"paypal\" action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\">\n				<input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\">\n				<input type=\"hidden\" name=\"hosted_button_id\" value=\""
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.paypal : depth0)) != null ? stack1.hosted_button_id : stack1), depth0))
-    + "\">\n				<input type=\"image\" src=\"https://www.paypalobjects.com/en_GB/i/btn/btn_cart_LG.gif\" border=\"0\" name=\"submit\" alt=\"PayPal – The safer, easier way to pay online.\">\n				<img src=\"/assets/svg/ic_add_shopping_cart_black_24px.svg\" />\n			    </form>\n			</div>\n";
+    + "\" class=\"paypal_btn\">\n				<input type=\"submit\" value=\"Add to Cart\" name=\"submit\" title=\"PayPal - The safer, easier way to pay online!\" class=\"paypal_btn\">\n			    </form>\n			</div>\n";
 },"7":function(container,depth0,helpers,partials,data) {
-    return "			<div><strong>SOLD OUT</strong></div>	\n";
+    return "			<div><strong>SOLD OUT</strong></div>\n";
 },"9":function(container,depth0,helpers,partials,data) {
     return "		    <div><strong>SOLD OUT</strong></div>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},depth0,{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+  return "<div class=\"box-wrapper\">\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},depth0,{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "</div>\n";
 },"useData":true});

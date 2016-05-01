@@ -46,7 +46,7 @@ gulp.task('templates', function() {
 		// Allow nesting based on path using gulp-declare's processNameByPath()
 		// You can remove this option completely if you aren't using nested folders
 		// Drop the templates/ folder from the namespace path by removing it from the filePath
-		
+
 		return declare.processNameByPath(filePath.replace('src/templates', ''));
 	    }
 	}))
@@ -74,7 +74,7 @@ gulp.task('javascript', ['mergejson', 'templates'], function() {
 	.pipe(gulp.dest('./dist/js/'));
 
     globby(['./src/js/**/*.js']).then(function(entries) {
-	var b = browserify({ 
+	var b = browserify({
 	    entries: entries,
 	    debug: false,
 	    transform: 'brfs'
@@ -93,7 +93,7 @@ gulp.task('images', function() {
 	    svgoPlugins: [{removeViewBox: false}],
 	    use: [pngquant()]
 	}))
-	.pipe(gulp.dest('./dist/assets/'));	
+	.pipe(gulp.dest('./dist/assets/'));
 });
 
 gulp.task('data', function() {
@@ -106,7 +106,7 @@ gulp.task('data', function() {
 		return cb(new Error("Streaming not supported"));
 	    }
 	    var json;
-	    
+
 	    try {
 		json = yaml.load(String(file.contents.toString('utf8')));
 	    } catch(e) {
@@ -115,7 +115,7 @@ gulp.task('data', function() {
 	    }
 	    file.path = gutil.replaceExtension(file.path, '.json');
 	    file.contents = new Buffer(JSON.stringify(json));
-	    
+
 	    cb(null,file);
 	}))
 	.pipe(gulp.dest('./src/data/'));
