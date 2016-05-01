@@ -24,6 +24,8 @@ var fs = require('fs');
 var path = require('path');
 var es = require('event-stream');
 var merge = require('merge-stream');
+var csslint = require('gulp-csslint');
+
 
 var name = require('./package.json').name;
 
@@ -63,8 +65,11 @@ gulp.task('templates', function() {
 gulp.task('less', function() {
     gulp.src(['src/less/main.less'])
 	.pipe(less())
+	.pipe(csslint())
+	.pipe(csslint.reporter())
 	.pipe(gulp.dest('./dist/css'));
 });
+
 
 gulp.task('javascript', ['mergejson', 'templates'], function() {
     var bundledStream = through();
