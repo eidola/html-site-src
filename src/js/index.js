@@ -33,7 +33,9 @@ var routes = (function() {
 		return;
 	    }
 	    if(!artist.hasOwnProperty('releases')) {
-		artist.releases = _.filter(releases, { "artist": artist.name });
+		artist.releases = _.filter(releases, function(e) {
+		    return e.artists.indexOf(artist.name) !== -1;
+		});
 	    }
 	    el.innerHTML = templates.artist(artist);
 	    return;

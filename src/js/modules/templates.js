@@ -13,7 +13,7 @@ exports["artist"] = Handlebars.template({"1":function(container,depth0,helpers,p
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.soundcloud : depth0)) != null ? stack1.type : stack1), depth0))
     + "/"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.soundcloud : depth0)) != null ? stack1.id : stack1), depth0))
-    + "&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true\" />\n";
+    + "&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true\"></iframe>\n";
 },"3":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -23,16 +23,16 @@ exports["artist"] = Handlebars.template({"1":function(container,depth0,helpers,p
 },"4":function(container,depth0,helpers,partials,data) {
     var helper;
 
-  return "	    <div>"
-    + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"title","hash":{},"data":data}) : helper)))
-    + "</div>\n";
+  return "	    <div><img src=\"/assets/285x285/"
+    + container.escapeExpression(((helper = (helper = helpers.cat_id || (depth0 != null ? depth0.cat_id : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"cat_id","hash":{},"data":data}) : helper)))
+    + ".png\"/></div>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
   return "<h2>"
-    + alias4(((helper = (helper = helpers.name_display || (depth0 != null ? depth0.name_display : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name_display","hash":{},"data":data}) : helper)))
+    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === "function" ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
     + "</h2>\n<img src=\"/assets/285x285/"
-    + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
+    + alias3((helpers.kebabCase || (depth0 && depth0.kebabCase) || alias2).call(alias1,(depth0 != null ? depth0.name : depth0),{"name":"kebabCase","hash":{},"data":data}))
     + ".png\"/>\n<div>"
     + ((stack1 = (helpers.markdown || (depth0 && depth0.markdown) || alias2).call(alias1,(depth0 != null ? depth0.description : depth0),{"name":"markdown","hash":{},"data":data})) != null ? stack1 : "")
     + "</div>\n"
